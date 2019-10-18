@@ -4,7 +4,6 @@ import Camera from "./Camera";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 import Axios from "axios";
-import GetLocation from 'react-native-get-location';
 
 export default class Login extends React.Component {
   state = {
