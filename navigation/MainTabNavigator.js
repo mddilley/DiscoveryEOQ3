@@ -11,6 +11,8 @@ import LinksScreen from "../screens/LinksScreen";
 import PotholeIndexScreen from "../screens/PotholeIndexScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
+import FormScreen from '../screens/FormScreen';
+
 const config = Platform.select({
   web: { headerMode: "screen" },
   default: {}
@@ -38,6 +40,22 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = "";
+
+const FormStack = createStackNavigator(
+  {
+    Form: FormScreen,
+  },
+  config
+);
+
+FormStack.navigationOptions = {
+  tabBarLabel: 'Form',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  ),
+};
+
+FormStack.path = '';
 
 const LinksStack = createStackNavigator(
   {
@@ -77,6 +95,7 @@ PotholeIndexStack.navigationOptions = {
 
 PotholeIndexStack.path = "";
 
+
 const SettingsStack = createStackNavigator(
   {
     Settings: SettingsScreen
@@ -98,6 +117,7 @@ SettingsStack.path = "";
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
+  FormStack,
   LinksStack,
   PotholeIndexStack,
   SettingsStack
