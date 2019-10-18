@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View } from "react-native";
+import { ScrollView, StyleSheet, SafeAreaView, View } from "react-native";
+import Camera from "./Camera";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 import Axios from "axios";
@@ -43,7 +44,7 @@ export default class Login extends React.Component {
     const { input } = this.state;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.container}>
         <FormInput
           name="issue"
           value={input}
@@ -61,7 +62,10 @@ export default class Login extends React.Component {
             buttonColor="#039BE5"
           />
         </View>
-      </SafeAreaView>
+        <View style={styles.camera}>
+          <Camera />
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -73,5 +77,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 25
+  },
+  camera: {
+    height: 400
   }
 });
