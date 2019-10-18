@@ -1,24 +1,41 @@
-import React from 'react'
-import { StyleSheet, SafeAreaView, View } from 'react-native'
-import { Button } from 'react-native-elements'
-import FormInput from '../components/FormInput'
-import FormButton from '../components/FormButton'
+import React from "react";
+import { StyleSheet, SafeAreaView, View } from "react-native";
+import FormInput from "../components/FormInput";
+import FormButton from "../components/FormButton";
+import Axios from "axios";
 
 export default class Login extends React.Component {
   state = {
-    input: '',
-    submitted: '',
-  }
+    input: ""
+  };
 
   handleInputChange = input => {
-    this.setState({ input })
+    this.setState({ input });
   };
 
   handleOnSubmit = () => {
-    console.log(this.state.input);
-    this.setState({
-        submitted: this.state.input
+    Axios({
+      method: "POST",
+      url: "https://api.knack.com/v1/objects/object_1/records",
+      headers: {
+        "X-Knack-Application-Id": "5daa188f00392700181dff63",
+        "X-Knack-REST-API-KEY": "a95522f0-f1e3-11e9-bab7-2db33a93111d",
+        "content-type": "application/json"
+      },
+      data: {
+        field_1: this.state.input,
+        field_2: "Pothole Repair",
+        field_3: "Sandbox",
+        field_4: "Open",
+        field_14: "TRAVIS"
+      }
     })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   render() {
@@ -44,16 +61,16 @@ export default class Login extends React.Component {
           />
         </View>
       </SafeAreaView>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: "#fff"
   },
   buttonContainer: {
     margin: 25
   }
-})
+});
