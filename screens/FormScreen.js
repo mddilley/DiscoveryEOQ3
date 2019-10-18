@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, View } from 'react-native'
-import { Button } from 'react-native-elements'
 import FormInput from '../components/FormInput'
 import FormButton from '../components/FormButton'
 

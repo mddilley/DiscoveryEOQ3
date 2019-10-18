@@ -7,7 +7,6 @@ import {
 
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
-import LinksScreen from "../screens/LinksScreen";
 import PotholeIndexScreen from "../screens/PotholeIndexScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
@@ -49,32 +48,13 @@ const FormStack = createStackNavigator(
 );
 
 FormStack.navigationOptions = {
-  tabBarLabel: 'Form',
+  tabBarLabel: 'Submit',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-create' : 'md-create'} />
   ),
 };
 
 FormStack.path = '';
-
-const LinksStack = createStackNavigator(
-  {
-    Links: LinksScreen
-  },
-  config
-);
-
-LinksStack.navigationOptions = {
-  tabBarLabel: "Links",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-link" : "md-link"}
-    />
-  )
-};
-
-LinksStack.path = "";
 
 const PotholeIndexStack = createStackNavigator(
   {
@@ -84,17 +64,16 @@ const PotholeIndexStack = createStackNavigator(
 );
 
 PotholeIndexStack.navigationOptions = {
-  tabBarLabel: "Potholes",
+  tabBarLabel: "Requests",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-options" : "md-options"}
+      name={Platform.OS === "ios" ? "ios-list" : "md-list"}
     />
   )
 };
 
 PotholeIndexStack.path = "";
-
 
 const SettingsStack = createStackNavigator(
   {
@@ -118,7 +97,6 @@ SettingsStack.path = "";
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   FormStack,
-  LinksStack,
   PotholeIndexStack,
   SettingsStack
 });
