@@ -21,6 +21,7 @@
     "expo-camera": "^7.0.0",
     "expo-constants": "^7.0.0",
     "expo-font": "^7.0.0",
+    "expo-module-scripts": "^1.1.1",
     "expo-web-browser": "^7.0.0",
     "formik": "^1.5.8",
     "react": "16.8.3",
