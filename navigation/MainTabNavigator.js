@@ -58,7 +58,7 @@ FormStack.path = '';
 
 const PotholeIndexStack = createStackNavigator(
   {
-    Settings: PotholeIndexScreen
+    PotholeIndex: PotholeIndexScreen
   },
   config
 );
